@@ -1,17 +1,13 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "description": "lambdaの動作確認用",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/aws-lambda": "^8.10.137",
-    "esbuild": "^0.20.2",
-    "typescript": "^5.4.5"
-  }
+  "author": "Takenari Yamamoto",
+  "license": "ISC"
 }
