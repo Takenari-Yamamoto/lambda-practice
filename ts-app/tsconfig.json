@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["projectA/**/*.ts", "projectB/**/*..ts"]
+}
