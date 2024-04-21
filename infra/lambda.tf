@@ -29,8 +29,8 @@ resource "aws_iam_policy_attachment" "lambda_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-resource "aws_lambda_function" "lambda_practice" {
-  function_name = "lambda_practice"
+resource "aws_lambda_function" "project-a-lambda" {
+  function_name = "project-a-lambda"
   package_type  = "Image"
 
   image_uri = "${aws_ecr_repository.lambda_repo.repository_url}:latest"
