@@ -1,8 +1,7 @@
 FROM public.ecr.aws/lambda/nodejs:20 as builder
 WORKDIR /usr/src/app
 COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm
-RUN pnpm install
+RUN npm install -g pnpm && pnpm install
 COPY src ./src
 RUN pnpm run build
 
