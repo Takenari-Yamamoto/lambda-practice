@@ -5,6 +5,5 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules"],
-  "include": ["projectA/**/*.ts", "projectB/**/*..ts"]
+  "exclude": ["node_modules"]
 }
