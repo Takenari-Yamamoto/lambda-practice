@@ -1,6 +1,9 @@
 const main = async () => {
   return new Promise((resolve) => {
-    resolve("Hello World");
+    setTimeout(() => {
+      console.log("Hello Take-chan");
+      resolve("Hello World");
+    }, 3000);
   });
 };
 
@@ -10,7 +13,7 @@ const handler = async (event: any) => {
   return {
     statusCode: 200,
     body: JSON.stringify({
-      message: "success to process event",
+      message: `processed successfully`,
     }),
   };
 };

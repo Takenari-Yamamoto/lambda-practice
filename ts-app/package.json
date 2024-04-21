@@ -19,6 +19,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "aws-lambda": "^1.0.7"
+    "aws-lambda": "^1.0.7",
+    "dayjs": "^1.11.10"
   }
 }

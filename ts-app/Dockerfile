@@ -1,23 +1,19 @@
-# ビルドステージ
-FROM public.ecr.aws/lambda/nodejs:18 as builder
+FROM public.ecr.aws/lambda/nodejs:20 as builder
 
-# 作業ディレクトリを設定
 WORKDIR /usr/src/app
 
-# package.json と pnpm-lock.yaml をコピー
 COPY package.json pnpm-lock.yaml ./
 
-# 依存関係のインストール
-RUN npm install
+RUN npm install -g pnpm
 
-# TypeScript ソースファイルをコピー
+RUN pnpm install
+
 COPY src ./src
 
-# TypeScript を JavaScript にトランスパイル
-RUN npm run build
+RUN pnpm run build
 
 # 実行ステージ
-FROM public.ecr.aws/lambda/nodejs:18
+FROM public.ecr.aws/lambda/nodejs:20
 
 # Lambda の実行ディレクトリに設定
 WORKDIR ${LAMBDA_TASK_ROOT}
