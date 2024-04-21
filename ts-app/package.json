@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/src/index.js",
+    "build": "swc src/index.ts --out-file dist/src/index.mjs",
     "start:projectA": "ts-node src/index.ts",
     "dockerBuild:projectA": "docker build -f Dockerfile -t project-a-lambda ."
   },
