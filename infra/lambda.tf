@@ -36,6 +36,8 @@ resource "aws_lambda_function" "lambda_practice" {
   image_uri = "${aws_ecr_repository.lambda_repo.repository_url}:latest"
   role      = aws_iam_role.lambda_exec.arn
 
+  architectures = ["arm64"]
+
   timeout     = 60
   memory_size = 128
 }
