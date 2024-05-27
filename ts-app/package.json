@@ -1,27 +1,16 @@
 {
-  "name": "ts-app",
+  "name": "my-lambda-function",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "swc src/index.ts --out-file dist/src/index.mjs",
-    "start:projectA": "ts-node src/index.ts",
-    "dockerBuild:projectA": "docker build -f Dockerfile -t project-a-lambda ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@swc/cli": "^0.3.12",
-    "@swc/core": "^1.4.16",
-    "@types/aws-lambda": "^8.10.137",
-    "@types/node": "^20.12.7",
-    "esbuild": "0.20.2",
-    "typescript": "^5.4.5"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
-    "aws-lambda": "^1.0.7",
-    "dayjs": "^1.11.10"
+    "aws-lambda": "^1.0.6",
+    "dayjs": "^1.10.7"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
   }
 }

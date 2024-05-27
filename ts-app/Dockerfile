@@ -1,12 +1,13 @@
-FROM public.ecr.aws/lambda/nodejs:20 as builder
-WORKDIR /usr/src/app
-COPY package.json pnpm-lock.yaml ./
-RUN npm install -g pnpm && pnpm install
-COPY src ./src
+FROM public.ecr.aws/lambda/nodejs:18
+
+WORKDIR /var/task
+
+COPY package.json pnpm-lock.yaml tsconfig.json ./
+RUN npm install -g pnpm && pnpm install && pnpm add @types/aws-lambda -D
+
+COPY src/ src/
+COPY utils/ utils/
+
 RUN pnpm run build
 
-FROM public.ecr.aws/lambda/nodejs:20
-WORKDIR ${LAMBDA_TASK_ROOT}
-COPY --from=builder /usr/src/app/dist/src/index.mjs ./
-COPY --from=builder /usr/src/app/node_modules ./node_modules
-CMD ["index.handler"]
+CMD ["dist/src/index.handler"]
